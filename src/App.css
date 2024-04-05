@@ -5,7 +5,7 @@
   font-style: normal;
 }
 body {
-  background: #250902;
+  background: #d1d8f0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,13 +16,13 @@ body {
 }
 
 h1 {
-  color: #fff;
+  color: #f0b4c8;
   margin-bottom: 0.5rem;
   font-size: 1.75rem;
 }
 
 .TodoWrapper {
-  background: #38040e;
+  background: #daeffa;
   margin-top: 5rem;
   padding: 2rem;
   border-radius: 5px;
@@ -36,21 +36,21 @@ h1 {
 .todo-input {
   outline: none;
   background: none;
-  border: 1px solid #640d14;
+  border: 1px solid #f3ffed;
   padding: 0.5rem 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
   width: 300px;
-  color: #fff;
+  color: #f0b4c8;
 }
 
 .todo-input::placeholder {
-  color: #ffffff4d;
+  color: #dc010171;
 }
 
 .todo-btn {
-  background: #800e13;
-  color: #fff;
+  background: #fdefd5;
+  color: #f0b4c8;
   border: none;
   padding: 0.55rem;
   cursor: pointer;
@@ -60,8 +60,8 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #800e13;
-  color: #fff;
+  background: #ecd6d44f;
+  color: #e87a9f;
   padding: 0.75rem 1rem;
   border-radius: 5px;
   margin-bottom: 1rem;
@@ -72,13 +72,13 @@ h1 {
 }
 
 .incompleted {
-  color: #fff;
+  color: #f0b4c8;
   cursor: pointer;
 }
 
 .completed {
   color: green;
-  text-decoration: checked;
+  text-decoration: line-through;
   cursor: pointer;
 }
 

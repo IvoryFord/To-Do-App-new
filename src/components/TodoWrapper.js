@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Todo } from "./Todo";
 import { TodoForm } from "./TodoForm";
 import { v4 as uuidv4 } from "uuid";
 import { EditTodoForm } from "./EditTodoForm";
 
 export const TodoWrapper = () => {
-  const [todos, setTodos] = useState([]);
+  // Load todos from localStorage on component mount
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem("todos")) || []
+  );
+
+  // Update localStorage whenever todos change
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (todo) => {
     setTodos([
       ...todos,
       { id: uuidv4(), task: todo, completed: false, isEditing: false },
     ]);
-  }
+  };
 
   const deleteTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
 
@@ -22,7 +30,7 @@ export const TodoWrapper = () => {
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
-  }
+  };
 
   const editTodo = (id) => {
     setTodos(
@@ -30,7 +38,7 @@ export const TodoWrapper = () => {
         todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
       )
     );
-  }
+  };
 
   const editTask = (task, id) => {
     setTodos(
@@ -44,10 +52,9 @@ export const TodoWrapper = () => {
     <div className="TodoWrapper">
       <h1>Današnji Plan</h1>
       <TodoForm addTodo={addTodo} />
-      {}
       {todos.map((todo) =>
         todo.isEditing ? (
-          <EditTodoForm editTodo={editTask} task={todo} />
+          <EditTodoForm editTodo={editTask} task={todo} key={todo.id} />
         ) : (
           <Todo
             key={todo.id}

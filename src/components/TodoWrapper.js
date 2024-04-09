@@ -5,12 +5,11 @@ import { v4 as uuidv4 } from "uuid";
 import { EditTodoForm } from "./EditTodoForm";
 
 export const TodoWrapper = () => {
-  // Load todos from localStorage on component mount
+  
   const [todos, setTodos] = useState(
     JSON.parse(localStorage.getItem("todos")) || []
   );
 
-  // Update localStorage whenever todos change
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);

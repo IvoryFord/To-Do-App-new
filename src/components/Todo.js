@@ -7,7 +7,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 export const Todo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
   return (
     <div className="Todo">
-      <p>
+      <p className={task.completed ? 'completed' : 'incomplete'}>
         {}
         <Checkbox
           checked={task.completed} 

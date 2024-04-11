@@ -9,11 +9,13 @@ export const Todo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
     <div className="Todo">
       <p className={task.completed ? 'completed' : 'incomplete'}>
         {}
+            <label>
         <Checkbox
           checked={task.completed} 
           onClick={() => toggleComplete(task.id)} 
         />
         {task.task}
+            </label>
       </p>
       <div>
         <FontAwesomeIcon
